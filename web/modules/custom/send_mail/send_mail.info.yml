@@ -1,0 +1,5 @@
+name: 'Send Mail'
+type: module
+description: 'A module that helps in sending mail after webform submission.'
+package: Custom
+core_version_requirement: ^10 || ^11

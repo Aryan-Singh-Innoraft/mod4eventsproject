@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Implements hooks for sending mail on webform submission.
+ */
+
+use Drupal\webform\WebformSubmissionInterface;
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_webform_submission_insert().
+ *
+ * This hook gets webform submitted data and node url.
+ * Uses the mailManager service to send the mail to user and admin.
+ */
+function send_mail_webform_submission_insert(WebformSubmissionInterface $webform_submission) {
+  // Storing the webform id being stored.
+  $webform_id = $webform_submission->getWebform()->id();
+  // Getting the node entity from which the submission is coming.
+  $source_entity = $webform_submission->getSourceEntity();
+  $node_url = 'Unknown source';
+  if ($source_entity && $source_entity->toUrl()->isRouted()) {
+    $node_url = $source_entity->toUrl('canonical', ['absolute' => TRUE])->toString();
+  }
+  // Condition that runs only on submission of event registration form.
+  if ($webform_id === 'event_registration') {
+    $values = $webform_submission->getData();
+    $email = $values['email'] ?? NULL;
+    $name = $values['name']['first'] ?? '';
+    $country = $values['country'] ?? '';
+    $phone_number = $values['phone_number'] ?? '';
+
+    // It prepares the message and looks at the implementation of mail hook.
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $module = 'send_mail';
+    $key = 'webform_submission';
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+
+    // Mail of admin.
+    $admin_mail = \Drupal::config('system.site')->get('mail');
+    $params_admin['subject'] = 'Event Registration Form Submission';
+    $params_admin['message'] = Markup::create("New submission received from <b>{$name}</b> Email: {$email} \n
+    Phone Number: {$phone_number} \n Country: {$country} \n Node Url: {$node_url}");
+    $mailManager->mail($module, $key, $admin_mail, $langcode, $params_admin);
+
+    // Mail of user.
+    if ($email) {
+      $params_user['subject'] = 'Thank You';
+      $params_user['message'] = Markup::create("Hello {$name},<br><br>Thankyou to register for an event.");
+      $mailManager->mail($module, $key, $email, $langcode, $params_user);
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ *
+ * This hook actually prepares the email message to be sent.
+ */
+function send_mail_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'webform_submission':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+  }
+}

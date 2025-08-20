@@ -1,0 +1,22 @@
+uuid: eb4c05fd-1f47-4151-8c59-68d65bf94c75
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - card_view
+_core:
+  default_config_hash: 1o0W13wt232YmsDYiRA5xtlFq0L2WNS7FmIVbBeuhIY
+id: card_view_content
+theme: card_view
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

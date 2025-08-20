@@ -1,0 +1,29 @@
+uuid: 06cb8a0e-10d9-4184-a1a6-22bf1d7df2a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.events
+  module:
+    - system
+    - views
+  theme:
+    - custom_theme
+id: custom_theme_views_block__events_block_2
+theme: custom_theme
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:events-block_2'
+settings:
+  id: 'views_block:events-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/15

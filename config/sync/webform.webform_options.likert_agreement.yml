@@ -1,0 +1,19 @@
+uuid: 803bdd2e-3d05-4412-8743-64f9851e214a
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: nPp-CfMKrP0yDMtyO0wQRwawEqaJVAPzQapinXmDgyU
+id: likert_agreement
+label: 'Likert: Agreement'
+category: Likert
+likert: true
+options: |
+  1: Strongly Disagree
+  2: Disagree
+  3: Neutral
+  4: Agree
+  5: Strongly Agree

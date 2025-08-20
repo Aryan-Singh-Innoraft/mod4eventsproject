@@ -1,0 +1,41 @@
+uuid: 7333daf4-f1cf-463d-88b0-23bb3bf84826
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.speaker.body
+    - field.field.node.speaker.field_speaker_image
+    - node.type.speaker
+  module:
+    - image
+    - text
+    - user
+id: node.speaker.default
+targetEntityType: node
+bundle: speaker
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_speaker_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,37 @@
+uuid: 33dbf1f3-325a-4fb3-9796-9e82b9e15809
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.upcoming_events
+  module:
+    - node
+    - system
+    - views
+  theme:
+    - custom_theme
+id: custom_theme_views_block__upcoming_events_block_1
+theme: custom_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:upcoming_events-block_1'
+settings:
+  id: 'views_block:upcoming_events-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/node/*'
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      events: events

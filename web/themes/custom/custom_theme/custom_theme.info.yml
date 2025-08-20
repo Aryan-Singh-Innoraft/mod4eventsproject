@@ -1,0 +1,8 @@
+name: Custom Theme
+type: theme
+description: 'Custom theme for overriding a View into Card layout'
+core_version_requirement: ^10
+base theme: bootstrap5
+libraries-extend:
+  bootstrap5/global-styling:
+    - custom_theme/card-styling

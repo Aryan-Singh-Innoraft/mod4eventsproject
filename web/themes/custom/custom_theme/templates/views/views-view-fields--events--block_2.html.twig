@@ -1,0 +1,15 @@
+{#
+  Custom row template for Events grid cards.
+#}
+
+{{ attach_library('custom_theme/card-styling') }}
+
+{% set now = "now"|date("U") %}
+{% set start = row._entity.field_event_date.value|date("U") %}
+{% set end = row._entity.field_event_end_date.value|date("U") %}
+
+<div class="event-card">
+  <h3 class="card-title">{{ fields.title.content }}</h3>
+  <div class="card-img">{{ fields.field_banner_image.content }}</div>
+  <div class="event-location">Location: {{ fields.field_event_location.content }}</div>
+</div>

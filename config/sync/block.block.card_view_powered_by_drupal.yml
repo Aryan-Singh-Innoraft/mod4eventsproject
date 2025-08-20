@@ -1,0 +1,22 @@
+uuid: 1aeb6201-0731-4e4c-86b2-622b234f14d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - card_view
+_core:
+  default_config_hash: 2_xxaOb8b_0AUgYFdJLxIBDDwufyh6YozhGfBd97p38
+id: card_view_powered_by_drupal
+theme: card_view
+region: footer
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }
