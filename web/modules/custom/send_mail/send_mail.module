@@ -139,5 +139,6 @@ function send_mail_webform_submission_form_alter(array &$form, FormStateInterfac
     // $currentUser = \Drupal::currentUser();
     // $username = $currentUser->getAccountName(); // This gets the Drupal username
     // $form['name']['#default_value'] = ['first' => $username];
+    // kjkj
   }
 }
