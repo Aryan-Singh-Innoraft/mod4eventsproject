@@ -1,0 +1,5 @@
+name: 'Upcoming Events Block'
+type: module
+description: 'A module that provides a custom block displaying all the upcoming blocks except the current one.'
+package: Custom
+core_version_requirement: ^10 || ^11

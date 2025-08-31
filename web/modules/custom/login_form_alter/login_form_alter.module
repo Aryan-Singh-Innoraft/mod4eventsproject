@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Login Form Alter module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function login_form_alter_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    $form['phone'] = [
+      '#type' => 'textfield',
+      '#required' => TRUE,
+      '#title' => t('Phone number'),
+      '#attributes' => [
+        'placeholder'  => t('Enter your mobile number.'),
+      ],
+    ];
+    $form['#validate'][] = 'login_form_alter_form_validate';
+  }
+}
+$current_time = \Drupal::time()->getCurrentTime();
+
+function login_form_alter_form_validate(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $name = $form_state->getValue('name');
+  $phone = $form_state->getValue('phone');
+  // dump($phone);
+  $user = \Drupal::service('entity_type.manager')->getStorage('user')->loadByProperties(['name' => $name]);
+  if ($user) {
+    $account = reset($user);
+    // $user_phone_number = $account->get('field_phone_number_value');
+    // $database= \Drupal::database();
+    $query = \Drupal::database()->select('user__field_phone_number', 'ufpn');
+    $query->fields('ufpn', ['field_phone_number_value']);
+    $query->innerJoin('users_field_data', 'ufd', 'ufpn.entity_id = ufd.uid');
+    $user_phone_number = $query->execute()->fetch();
+    // dump($user_phone_number->field_phone_number_value);
+    if ($user_phone_number->field_phone_number_value != $phone) {
+      $form_state->setErrorByName('phone_number', t('The phone number does not match the user account.'));
+    }
+  }
+}

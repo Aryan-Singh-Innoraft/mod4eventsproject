@@ -1,0 +1,8 @@
+products.buy-now:
+  path: '/buy-now/{node}'
+  defaults:
+    _controller: '\Drupal\products\Controller\BuyNowController::buynow'
+    _title: Thank you
+  requirements:
+    _permission: "access content"
+    node: \d+

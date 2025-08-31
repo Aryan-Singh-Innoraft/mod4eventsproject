@@ -3,3 +3,7 @@ recipe: drupal10
 config:
   webroot: web
   php: '8.2'
+services:
+  mailhog:
+    type: mailhog
+    portforward: true

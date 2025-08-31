@@ -1,0 +1,22 @@
+uuid: 17d3457d-07e2-4123-bbbb-5e2dd7ef299a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: todo
+label: Todo
+type: 'canonical_entities:node'
+pattern: '/todo/[node:title]'
+selection_criteria:
+  1a47e4b5-2ff4-43c7-acd3-0a938fb376eb:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 1a47e4b5-2ff4-43c7-acd3-0a938fb376eb
+    context_mapping:
+      node: node
+    bundles:
+      todo_item: todo_item
+selection_logic: and
+weight: -5
+relationships: {  }

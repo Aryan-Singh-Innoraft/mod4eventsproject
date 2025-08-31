@@ -1,0 +1,19 @@
+{#
+Upcoming events block.
+#}
+
+<div>
+<h2>Upcoming Events</h2>
+{% if items %} 
+<p style="color: red">HELLO FROM TEMPLATE</p>
+{{ dump('hello') }}
+{{ dump(items) }}
+  <ul>
+  {% for item in items %}
+    <li>{{ item|raw }}</li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No upcoming events found. </p>
+{% endif %}
+</div>

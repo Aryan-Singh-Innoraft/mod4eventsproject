@@ -1,0 +1,37 @@
+uuid: e8d8e643-02c9-45a0-b2f1-ee601fa4894b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.cart.field_product
+    - field.field.node.cart.field_user
+    - node.type.cart
+  module:
+    - user
+id: node.cart.default
+targetEntityType: node
+bundle: cart
+mode: default
+content:
+  field_product:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_user:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

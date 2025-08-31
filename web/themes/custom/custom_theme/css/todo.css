@@ -1,0 +1,26 @@
+.todo-done, .add-item {
+  background-color: rgb(83, 248, 83);
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+.todo-done {
+  max-width: 30%;
+}
+.table-striped tbody .views-field-nothing:hover {
+  cursor: pointer;
+}
+.views-table {
+  max-width: 70%;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+.views-field-title a {
+  text-decoration: none;
+}
+.add-item {
+  padding: 15px 20px;
+  margin: 40px 0 0 50px;
+  border-radius: 20px;
+}

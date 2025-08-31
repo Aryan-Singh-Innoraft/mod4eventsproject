@@ -2,6 +2,8 @@ uuid: 7392140a-2120-4889-a1c1-20eef90e1253
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - custom_theme
 _core:
@@ -9,7 +11,7 @@ _core:
 id: custom_theme_local_tasks
 theme: custom_theme
 region: content
-weight: -5
+weight: -8
 provider: null
 plugin: local_tasks_block
 settings:
@@ -19,4 +21,8 @@ settings:
   provider: core
   primary: true
   secondary: true
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: /node/28

@@ -1,0 +1,24 @@
+uuid: af9fecaf-bcfc-441b-b87e-3a192e99f6a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cart.field_product
+    - field.field.node.cart.field_user
+    - node.type.cart
+  module:
+    - user
+id: node.cart.teaser
+targetEntityType: node
+bundle: cart
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_product: true
+  field_user: true

@@ -1,0 +1,5 @@
+name: 'Products'
+type: module
+description: 'A custom module that provide buy now and add to cart feature.'
+package: Custom
+core_version_requirement: ^10 || ^11

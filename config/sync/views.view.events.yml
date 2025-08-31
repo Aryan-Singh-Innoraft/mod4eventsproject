@@ -358,7 +358,7 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: 'Next ›'
+            next: 'Load more ›'
             previous: '‹ Previous'
           expose:
             items_per_page: false

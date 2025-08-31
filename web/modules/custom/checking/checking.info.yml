@@ -1,0 +1,5 @@
+name: 'Checking'
+type: module
+description: 'Custom module description'
+core_version_requirement: ^10
+package: Custom

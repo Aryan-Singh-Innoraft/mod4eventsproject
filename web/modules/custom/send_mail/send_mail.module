@@ -7,6 +7,7 @@
 
 use Drupal\webform\WebformSubmissionInterface;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_webform_submission_insert().
@@ -19,6 +20,9 @@ function send_mail_webform_submission_insert(WebformSubmissionInterface $webform
   $webform_id = $webform_submission->getWebform()->id();
   // Getting the node entity from which the submission is coming.
   $source_entity = $webform_submission->getSourceEntity();
+  $title = $source_entity->label();
+  $body = $source_entity->get('body')->value;
+  $start_date = $source_entity->get('field_event_date')->value;
   $node_url = 'Unknown source';
   if ($source_entity && $source_entity->toUrl()->isRouted()) {
     $node_url = $source_entity->toUrl('canonical', ['absolute' => TRUE])->toString();
@@ -47,7 +51,7 @@ function send_mail_webform_submission_insert(WebformSubmissionInterface $webform
     // Mail of user.
     if ($email) {
       $params_user['subject'] = 'Thank You';
-      $params_user['message'] = Markup::create("Hello {$name},<br><br>Thankyou to register for an event.");
+      $params_user['message'] = Markup::create("Hello {$name},<br><br>Thankyou to register for an event {$title} {$body} {$start_date} .");
       $mailManager->mail($module, $key, $email, $langcode, $params_user);
     }
   }
@@ -64,5 +68,76 @@ function send_mail_mail($key, &$message, $params) {
       $message['subject'] = $params['subject'];
       $message['body'][] = $params['message'];
       break;
+    case 'event_expired':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+
+/**
+ * Implements hook_cron(). 
+ *
+ * This hook runs after a certain time interval and performs the function.
+ */
+function send_mail_cron() {
+  $current_time = \Drupal::time()->getCurrentTime();
+  $curr_time = date('Y-m-d H:i:s', $current_time);
+  $current_hour = date('H', $current_time);
+  // dump($current_time);
+  if ($current_hour != '00') {
+    return;
+  }
+
+  $yesterday_midnight = strtotime('yesterday midnight', $current_time);
+  // dump($yesterday_midnight);
+  $yes_midnight = date('Y-m-d H:i:s', $yesterday_midnight);
+
+  $storage = \Drupal::service('entity_type.manager')->getStorage('node');
+  $query = $storage->getQuery()->accessCheck(FALSE)->condition('status', 1);
+  $query->condition('type', 'events');
+  $query->condition('field_event_end_date', $yes_midnight, '>=');
+  $query->condition('field_event_end_date', $curr_time, '<=');
+  $nids = $query->execute();
+  // dump($nids);
+  if ($nids) {
+    $nodes = $storage->loadMultiple($nids);
+    // dump("Hello");
+    foreach ($nodes as $node) {
+      $owner = $node->getOwner();
+      $langcode = $owner->getPreferredLangcode();
+      // dump($node->get('field_event_end_date'));
+      // dump($current_time);
+      $owner_email = $owner->getEmail();
+
+      if ($owner_email) {
+        // $node_title = $node->label();
+        $mailer = \Drupal::service('plugin.manager.mail');
+        $params['subject'] = 'Event expiration mail.';
+        $params['message'] = Markup::create("Your event " . $node->label() . " has expired");
+        $mailer->mail(
+          'send_mail',
+          'event_expired',
+          $owner_email,
+          $langcode,
+          $params
+        );
+      }
+    }
+  }
+
+}
+
+function send_mail_webform_submission_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // dump($form_id);
+  if (strpos($form_id, 'event_registration') !== FALSE) {
+    // dump('Hello');
+    $currentUser = \Drupal::currentUser();
+    $displayName = $currentUser->getDisplayName();
+    // dump($form);
+    $form['elements']['name']['#default_value'] = ['first' => $displayName];
+    // $currentUser = \Drupal::currentUser();
+    // $username = $currentUser->getAccountName(); // This gets the Drupal username
+    // $form['name']['#default_value'] = ['first' => $username];
   }
 }

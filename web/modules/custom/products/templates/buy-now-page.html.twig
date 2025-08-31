@@ -1,0 +1,10 @@
+<div class="buy-now-section">
+{{ title }}
+  {% if title %}
+    <h2>Thankyou for buying {{ title }}</h2>
+    <p>Total amount: {{ price }}</p>
+    {% if image_url %}
+      <img src="{{ image_url }}" alt="Product"/>
+    {% endif %}
+  {% endif %}
+</div>

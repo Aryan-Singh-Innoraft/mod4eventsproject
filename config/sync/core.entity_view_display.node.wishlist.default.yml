@@ -1,0 +1,19 @@
+uuid: 407e0b49-a17d-4741-994f-c74215b154e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wishlist
+  module:
+    - user
+id: node.wishlist.default
+targetEntityType: node
+bundle: wishlist
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

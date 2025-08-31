@@ -1,0 +1,28 @@
+uuid: 3a7c4c45-db12-473e-9659-93044b4e0173
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.cart.field_icon
+    - image.style.menu_icon
+    - system.menu.cart
+  module:
+    - image
+id: menu_link_content.cart.default
+targetEntityType: menu_link_content
+bundle: cart
+mode: default
+content:
+  field_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: menu_icon
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  children: true

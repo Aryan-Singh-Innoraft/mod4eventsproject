@@ -1,0 +1,16 @@
+cart.add:
+  path: '/add-to-cart/{node}'
+  defaults:
+    _title: 'Your Cart'
+    _controller: '\Drupal\cart\Controller\CartController::add'
+  requirements:
+    _permission: 'access content'
+    node: '\d+'
+cart.delete:
+  path: '/delete-from-cart/{node}'
+  defaults:
+    _title: 'Your Cart'
+    _controller: '\Drupal\cart\Controller\CartController::delete'
+  requirements:
+    _permission: 'access content'
+    cart_item: '\d+'

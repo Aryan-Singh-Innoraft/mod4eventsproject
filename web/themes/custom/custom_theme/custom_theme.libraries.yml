@@ -2,3 +2,25 @@ card-styling:
   css:
     theme:
       css/style.css: {}
+cart-styling:
+  css:
+    theme:
+      css/cart.css: {}
+paypal_integration:
+  js:
+    js/paypal-integration.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.once
+todo-styling:
+  css:
+    theme:
+      css/todo.css: {}
+todo-js:
+  js:
+    js/todo.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.once 

@@ -1,0 +1,6 @@
+{{ attach_library('custom_theme/cart-styling') }}
+{% for row in rows %}
+  <div {{ row.attributes.addClass('views-row') }}>
+    {{ row.content }}
+  </div>
+{% endfor %}

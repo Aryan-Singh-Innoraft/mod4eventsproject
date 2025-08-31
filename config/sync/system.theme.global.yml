@@ -11,6 +11,6 @@ features:
   favicon: true
   node_user_picture: true
 logo:
-  path: ''
+  path: 'public://Screenshot from 2025-08-22 12-19-22.png'
   url: null
-  use_default: true
+  use_default: false

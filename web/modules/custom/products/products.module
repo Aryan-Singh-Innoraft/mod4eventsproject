@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Products module.
+ */
+
+/**
+ * Implements the hook_theme().
+ */
+function products_theme($existing, $type, $theme, $path) {
+  return [
+    'buy_now_page' => [
+      'variables' => [
+        'title' => NULL,
+        'price' => NULL,
+        'image_url' => NULL,
+      ],
+      'template' => 'buy-now-page',
+      'path' => $path . '/templates',
+    ],
+  ];
+}

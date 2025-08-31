@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: 0xE4emSSHTVKb88WL3yN2IahuH23p8VNAXMZNux6BKs
+method: 0
+pattern: '@innoraft.com'
+message: 'Only [@innoraft.com] domain allowed.'
+actions: null
+form_build_id: form-bC_pbmx57AmkdjpibLCCmxzPoBR_OipKN0H5MjXO7Ao
+form_token: 8pcbWJW90sEJZjVmEk-zQCL7Z6SdbFjV2sYb7K0TPWU
+form_id: domain_registration_admin_form

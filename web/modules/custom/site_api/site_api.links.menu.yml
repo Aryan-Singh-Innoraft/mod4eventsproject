@@ -1,0 +1,6 @@
+site_api.bearer_token:
+  title: Bearer token
+  description: Set the bearer token for content api access.
+  parent: system.admin_config_system
+  route_name: site_api.bearer_token
+  weight: 10

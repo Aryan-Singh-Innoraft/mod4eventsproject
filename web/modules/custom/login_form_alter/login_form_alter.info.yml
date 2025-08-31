@@ -1,0 +1,5 @@
+name: 'Login Form Alter'
+type: module
+description: 'A custom module that alters the login form.'
+package: Custom
+core_version_requirement: ^10 || ^11

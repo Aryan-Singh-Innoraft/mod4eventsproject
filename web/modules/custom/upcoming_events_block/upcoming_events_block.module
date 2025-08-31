@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * This includes hook that helps in registering theme templates.
+ */
+
+/**
+ * Implements the hook_theme().
+ */
+// function upcoming_events_block_theme($existing, $type, $theme, $path) {
+//   return [
+//     'upcoming-events-list' => [
+//       'variables' => [
+//         'items' => [],
+//       ],
+//     ],
+//   ];
+// }

@@ -1,0 +1,7 @@
+todo.delete:
+  path: 'todo/mark-done/{item}'
+  defaults:
+    _title: 'Delete'
+    _controller: '\Drupal\todo\Controller\TodoController::delete'
+  requirements:
+    _permission: 'access content'

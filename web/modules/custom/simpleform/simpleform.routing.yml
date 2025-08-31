@@ -1,0 +1,7 @@
+simpleform.example:
+  path: '/simpleform/example'
+  defaults:
+    _title: 'Example'
+    _form: 'Drupal\simpleform\Form\ExampleForm'
+  requirements:
+    _permission: 'access content'

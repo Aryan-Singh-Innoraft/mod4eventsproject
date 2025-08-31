@@ -1,0 +1,14 @@
+uuid: f6425380-6da0-4d48-bd30-92d621bd43c2
+langcode: en
+status: true
+dependencies: {  }
+name: menu_icon
+label: 'Menu icon'
+effects:
+  1cc7973a-3a2b-4bc6-baff-9e451fafa9e3:
+    uuid: 1cc7973a-3a2b-4bc6-baff-9e451fafa9e3
+    id: image_resize
+    weight: 2
+    data:
+      width: 40
+      height: 40

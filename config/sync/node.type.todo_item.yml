@@ -1,0 +1,18 @@
+uuid: b2f164db-6666-4047-abe9-09d1cc5f4ede
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Todo Item'
+type: todo_item
+description: 'Use this to add todo item.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

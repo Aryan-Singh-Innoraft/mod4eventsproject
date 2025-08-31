@@ -1,0 +1,25 @@
+uuid: 9599d163-6ab1-40f6-ac7b-e9cf69c62172
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - upcoming_events_block
+  theme:
+    - custom_theme
+id: custom_theme_upcomingevents
+theme: custom_theme
+region: content
+weight: -1
+provider: null
+plugin: upcoming_events_block_upcoming_events
+settings:
+  id: upcoming_events_block_upcoming_events
+  label: 'Upcoming Events'
+  label_display: visible
+  provider: upcoming_events_block
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/19

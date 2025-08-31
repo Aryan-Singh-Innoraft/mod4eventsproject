@@ -1,0 +1,15 @@
+site_api.content:
+  path: '/apicontent'
+  defaults:
+    _title: 'Site Content API'
+    _controller: '\Drupal\site_api\Controller\SiteApiController::content'
+  requirements:
+    _permission: 'access content'
+
+site_api.bearer_token:
+  path: '/admin/config/system/bearer-token'
+  defaults:
+    _title: 'Bearer token'
+    _form: 'Drupal\site_api\Form\BearerTokenForm'
+  requirements:
+    _permission: 'administer site configuration'

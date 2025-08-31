@@ -1,0 +1,25 @@
+uuid: a633b092-f359-445d-9917-c22585eb22ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - paypal_plus
+    - system
+  theme:
+    - custom_theme
+id: custom_theme_paypalpayblock
+theme: custom_theme
+region: sidebar_first
+weight: -10
+provider: null
+plugin: paypalpay_block
+settings:
+  id: paypalpay_block
+  label: 'Paypal pay block'
+  label_display: visible
+  provider: paypal_plus
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /cart-items

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.article
+    - node.type.events
     - node.type.page
     - taxonomy.vocabulary.tags
   module:
@@ -29,19 +30,27 @@ permissions:
   - 'access toolbar'
   - 'administer url aliases'
   - 'create article content'
+  - 'create events content'
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
+  - 'delete any events content'
   - 'delete article revisions'
+  - 'delete events revisions'
   - 'delete own article content'
+  - 'delete own events content'
   - 'delete own files'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'edit any events content'
   - 'edit own article content'
   - 'edit own comments'
+  - 'edit own events content'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'revert events revisions'
   - 'view all revisions'
+  - 'view events revisions'
   - 'view own unpublished content'
   - 'view the administration theme'

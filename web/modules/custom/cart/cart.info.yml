@@ -1,0 +1,5 @@
+name: 'Cart'
+type: module
+description: 'A custom module that provides add to cart functionality.'
+package: Custom
+core_version_requirement: ^10 || ^11

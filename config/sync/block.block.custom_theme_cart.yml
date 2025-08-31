@@ -1,0 +1,25 @@
+uuid: e2d241d2-15d3-421f-b1ca-dc4a1517697d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.cart
+  module:
+    - system
+  theme:
+    - custom_theme
+id: custom_theme_cart
+theme: custom_theme
+region: header
+weight: -6
+provider: null
+plugin: 'system_menu_block:cart'
+settings:
+  id: 'system_menu_block:cart'
+  label: Cart
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

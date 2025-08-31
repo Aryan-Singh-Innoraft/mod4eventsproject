@@ -12,7 +12,7 @@ dependencies:
 id: custom_theme_views_block__events_block_2
 theme: custom_theme
 region: content
-weight: 0
+weight: -3
 provider: null
 plugin: 'views_block:events-block_2'
 settings:
@@ -26,4 +26,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /node/15
+    pages: /events
